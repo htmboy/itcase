@@ -3,18 +3,34 @@ package itcase345;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import java.io.OutputStreamWriter;
 
 public class CopyFile {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		copyText4();
+		copyText5();
 		
+	}
+	public static void copyText5() throws IOException {
+		InputStreamReader isr = new InputStreamReader(new FileInputStream("d://web//header notes.php"),"utf-8");
+		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("c://001//header nowes.txt"), "utf-8");
+		
+		char[] ch = new char[1024];
+		int len;
+		while((len = isr.read(ch)) != -1) {
+			osw.write(ch, 0, len);
+		}
+		isr.close();
+		osw.close();
 	}
 	public static void copyText4() throws IOException {
 		FileReader fr = new FileReader("d://web//header notes.php");
