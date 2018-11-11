@@ -9,9 +9,31 @@ public class FileScaner {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		scaner6();
+		scaner8(new File("d:\\xftp"));
 	}
 	
+	
+	private static void scaner8(File dir) {
+		System.out.println(dir);
+		// TODO Auto-generated method stub
+		File[] files = dir.listFiles();
+		for(File name : files) {
+			if(name.isDirectory() && !name.isHidden())
+				scaner8(name);
+			System.out.println("file: " + name);
+		}
+//		for(int i = 0; i <= files.length; i++) {
+////			if(files[i].isDirectory() && !files[i].isHidden()) {
+////				scaner8(files[i]);
+////			}	
+////			else
+//			System.out.println("file:"+files[i]);
+//		}
+		
+		
+	}
+
+
 	private static void scaner7() {
 		// TODO Auto-generated method stub
 		File f = new File("d:" + File.separator);
